@@ -20,14 +20,12 @@ export default class Menu extends React.PureComponent {
     right: PropTypes.number,
     left: PropTypes.number,
     visible: PropTypes.bool,
-    arrowPosition: PropTypes.oneOf(['topRight', 'topLeft', 'topCenter']),
     onVisible: PropTypes.func.isRequired,
     contentStyle: View.propTypes.style,
   }
 
   static defaultProps = {
     top: 74,
-    arrowPosition: 'topRight',
     contentStyle: {
       backgroundColor: '#4A4A4A',
     }
@@ -77,36 +75,14 @@ export default class Menu extends React.PureComponent {
   }
 
   renderContent = () => {
-    const { data, arrowPosition, left, contentStyle } = this.props
+    const { data, left, contentStyle } = this.props
     let { top, right } = this.props
     if (!right && !left) {
       right = 12
     }
 
-    const arrowSize = 10
-    let arrowLeft = undefined
-    if (this.state.itemLayout) {
-      switch (arrowPosition) {
-        case 'topRight':
-          arrowLeft = this.state.itemLayout.x + this.state.itemLayout.width - arrowSize - 8
-          break
-        case 'topLeft':
-          arrowLeft = this.state.itemLayout.x + 8
-          break
-        case 'topCenter':
-          arrowLeft = this.state.itemLayout.x + this.state.itemLayout.width / 2.0 - arrowSize / 2.0
-          break
-      }
-    }
-
     return (
       <View style={{ flex: 1 }}>
-        <View style={[styles.arrow, {
-          position: 'absolute',
-          top: top - arrowSize,
-          left: arrowLeft,
-          borderBottomColor: contentStyle.backgroundColor,
-        }]} />
         <View style={[styles.content, contentStyle, { top, right, left }]}
               onLayout={({ nativeEvent: { layout } }) => {
                 this.setState({ itemLayout: layout })
@@ -163,16 +139,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: 19,
     paddingVertical: 11,
   },
-  arrow: {
-    width: 0,
-    height: 0,
-    borderStyle: 'solid',
-    borderBottomWidth: 7,
-    borderLeftWidth: 5,
-    borderRightWidth: 5,
-    borderTopWidth: 3,
-    borderTopColor: '#f000',//下箭头颜色
-    borderLeftColor: '#0f00',//右箭头颜色
-    borderRightColor: '#00f0'//左箭头颜色
-  }
 })
