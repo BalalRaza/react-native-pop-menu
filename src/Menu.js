@@ -6,8 +6,11 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   StyleSheet,
+  Dimensions,
 } from 'react-native'
 import PropTypes from 'prop-types'
+
+const { height, width } = Dimension.get('window');
 
 export default class Menu extends React.PureComponent {
 
@@ -59,7 +62,7 @@ export default class Menu extends React.PureComponent {
     return (
       <View key={index} style={styles.item}>
         <TouchableOpacity
-          style={{ flexDirection: 'row' }}
+          style={styles.touchableArea}
           onPress={() => {
             item.onPress && item.onPress()
             this.dismiss()
@@ -153,5 +156,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  touchableArea: {
+    flexDirection: 'row',
+    height: 40,
+    width: ( 0.8 * width ),
   },
 })
