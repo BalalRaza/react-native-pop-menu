@@ -60,11 +60,9 @@ export default class Menu extends React.PureComponent {
             item.onPress && item.onPress()
             this.dismiss()
           }}>
-          <View style={{ flex: 1 }} />
           <Text style={styles.text}>
             {item.title}
           </Text>
-          <View style={{ flex: 1 }} />
         </TouchableOpacity>
         {
           (index == (this.props.data.length - 1)) ? null :
