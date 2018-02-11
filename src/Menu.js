@@ -13,6 +13,7 @@ export default class Menu extends React.PureComponent {
 
   static propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({
+      icon: PropTypes.object,
       title: PropTypes.string,
       onPress: PropTypes.func
     })).isRequired,
@@ -22,6 +23,7 @@ export default class Menu extends React.PureComponent {
     visible: PropTypes.bool,
     onVisible: PropTypes.func.isRequired,
     contentStyle: View.propTypes.style,
+    textStyle: Text.propTypes.style,
   }
 
   static defaultProps = {
