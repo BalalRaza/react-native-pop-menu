@@ -54,6 +54,8 @@ export default class Menu extends React.PureComponent {
   }
 
   renderItem = (item, index) => {
+    const { textStyle } = this.props;
+
     return (
       <View key={index} style={styles.item}>
         <TouchableOpacity
@@ -66,9 +68,9 @@ export default class Menu extends React.PureComponent {
             {item.icon}
           </View>
           <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {item.title}
-          </Text>
+            <Text style={[styles.text, textStyle]}>
+              {item.title}
+            </Text>
           </View>
         </TouchableOpacity>
         {
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderRadius: 2,
     alignItems: 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   item: {
     flex: 1,
@@ -136,12 +138,20 @@ const styles = StyleSheet.create({
     left: 6,
     right: 6,
     bottom: 0,
-    backgroundColor: '#666666'
+    backgroundColor: 'lightgray',
+  },
+  textContainer: {
+    flex: 4,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   text: {
     fontSize: 13,
     color: '#FFFFFF',
-    paddingHorizontal: 19,
-    paddingVertical: 11,
+  },
+  iconContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })
