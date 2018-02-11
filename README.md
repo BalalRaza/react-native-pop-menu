@@ -80,3 +80,5 @@ Props:
 |arrowPosition|String|Menu arrow's position, one of 'topRight', 'topLeft', 'topCenter'|'topRight'|
 |contentStyle|View.propTypes.style|Edit the Menu's stylecd|{ backgroundColor: defaultColor }|
 
+### Thanks
+react-native-pop-menu
