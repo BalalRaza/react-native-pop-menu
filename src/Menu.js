@@ -62,9 +62,14 @@ export default class Menu extends React.PureComponent {
             item.onPress && item.onPress()
             this.dismiss()
           }}>
+          <View style={styles.iconContainer}>
+            {item.icon}
+          </View>
+          <View style={styles.textContainer}>
           <Text style={styles.text}>
             {item.title}
           </Text>
+          </View>
         </TouchableOpacity>
         {
           (index == (this.props.data.length - 1)) ? null :
