@@ -25,7 +25,7 @@ export default class Menu extends React.PureComponent {
     left: PropTypes.number,
     visible: PropTypes.bool,
     onVisible: PropTypes.func.isRequired,
-    contentStyle: View.propTypes.style,
+    contentStyle: ViewPropTypes.style,
     textStyle: Text.propTypes.style,
   }
 
