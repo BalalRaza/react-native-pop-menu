@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 
-const { height, width } = Dimension.get('window');
+const { height, width } = Dimensions.get('window');
 
 export default class Menu extends React.PureComponent {
 
